@@ -29,10 +29,19 @@ class Login(QDialog):
         super().__init__(parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+        self.ui.buttonBox.accepted.connect(self.accept_action)
+        self.ui.buttonBox.rejected.connect(self.reject_action)
+
+    def accept_action(self):
+        print('accepted')
+
+    def reject_action(self):
+        print('rejected')
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = MainWindow()
     widget.show()
+    widget.push_login_clicked()
     sys.exit(app.exec())
