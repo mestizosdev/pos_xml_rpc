@@ -3,6 +3,7 @@
         "mainwindow.py",
         "form.ui",
         "login.ui",
-        "login.py"
+        "login.py",
+        "app.py"
     ]
 }

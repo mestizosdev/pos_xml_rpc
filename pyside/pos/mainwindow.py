@@ -53,12 +53,3 @@ class MainWindow(QMainWindow):
 
     def close_app(self):
         self.close()
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    widget = MainWindow()
-    widget.show()
-    while widget.is_not_login:
-        widget.try_login()
-    sys.exit(app.exec())
