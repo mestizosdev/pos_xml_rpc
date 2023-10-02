@@ -3,7 +3,9 @@ import os
 import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow
+from xmlrpc import client
 from dotenv_vault import load_dotenv
+from utils import message
 
 load_dotenv()
 # Important:
@@ -16,16 +18,20 @@ from login import Login
 
 class MainWindow(QMainWindow):
     is_not_login = True
+    common = None
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.pushLogin.clicked.connect(self.close_app)
+        # self.ui.pushConnect.clicked.connect(self.test_odoo_server)
         server = os.getenv('SERVER')
-        db = os.getenv('DB')
-        print(f'Server: {server}')
-        print(f'DB: {db}')
+        try:
+            self.common = client.ServerProxy("%s/xmlrpc/2/common" % server)
+            print(self.common.version())
+        except ConnectionError:
+            message.error(f'Error connect to {server}')
+            sys.exit()
 
     def try_login(self):
         login = Login(self)
@@ -34,6 +40,11 @@ class MainWindow(QMainWindow):
             if login.username == '' or login.password == '':
                 self.is_not_login = True
                 return
+            else:
+                uid = self.common.authenticate(os.getenv('DB'), login.username, login.password, {})
+                if not uid:
+                    self.is_not_login = True
+                    return
         else:
             self.close()
             sys.exit()

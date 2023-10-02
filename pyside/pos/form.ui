@@ -14,17 +14,17 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushLogin">
+   <widget class="QPushButton" name="pushConnect">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>170</y>
+      <x>70</x>
+      <y>60</y>
       <width>119</width>
       <height>36</height>
      </rect>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>Connect</string>
     </property>
    </widget>
   </widget>

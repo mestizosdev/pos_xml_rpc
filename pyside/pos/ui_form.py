@@ -25,9 +25,9 @@ class Ui_MainWindow(object):
         MainWindow.resize(800, 600)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.pushLogin = QPushButton(self.centralwidget)
-        self.pushLogin.setObjectName(u"pushLogin")
-        self.pushLogin.setGeometry(QRect(350, 170, 119, 36))
+        self.pushConnect = QPushButton(self.centralwidget)
+        self.pushConnect.setObjectName(u"pushConnect")
+        self.pushConnect.setGeometry(QRect(70, 60, 119, 36))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -44,6 +44,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.pushLogin.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.pushConnect.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
     # retranslateUi
 
