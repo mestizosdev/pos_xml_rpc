@@ -2,7 +2,7 @@
 import os
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QMainWindow
 from xmlrpc import client
 from dotenv_vault import load_dotenv
 from utils import message
@@ -45,6 +45,8 @@ class MainWindow(QMainWindow):
                 if not uid:
                     self.is_not_login = True
                     return
+                server = os.getenv('SERVER')
+                self.ui.statusbar.showMessage(f'Connected to {server} with {login.username}', 9000)
         else:
             self.close()
             sys.exit()

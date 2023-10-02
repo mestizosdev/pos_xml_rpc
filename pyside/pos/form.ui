@@ -37,8 +37,32 @@
      <height>33</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuTransacction">
+    <property name="title">
+     <string>&amp;Transacction</string>
+    </property>
+    <addaction name="actionPoint_of_Sale"/>
+   </widget>
+   <widget class="QMenu" name="menuParameter">
+    <property name="title">
+     <string>&amp;Parameter</string>
+    </property>
+    <addaction name="actionPrinter"/>
+   </widget>
+   <addaction name="menuTransacction"/>
+   <addaction name="menuParameter"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionPoint_of_Sale">
+   <property name="text">
+    <string>&amp;Point of Sale</string>
+   </property>
+  </action>
+  <action name="actionPrinter">
+   <property name="text">
+    <string>P&amp;rinter</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
