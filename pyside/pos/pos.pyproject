@@ -4,6 +4,8 @@
         "form.ui",
         "login.ui",
         "login.py",
-        "app.py"
+        "app.py",
+        "point_of_sale.ui",
+        "point_of_sale.py"
     ]
 }
