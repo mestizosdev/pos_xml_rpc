@@ -52,6 +52,7 @@ class Ui_Dialog(object):
 
         self.txtPassword = QLineEdit(self.formLayoutWidget)
         self.txtPassword.setObjectName(u"txtPassword")
+        self.txtPassword.setEchoMode(QLineEdit.Password)
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.txtPassword)
 
