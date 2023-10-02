@@ -18,20 +18,23 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.pushLogin.clicked.connect(self.push_login_clicked)
+        self.ui.pushLogin.clicked.connect(self.close_app)
 
-    def push_login_clicked(self):
+    def try_login(self):
         login = Login(self)
         value = login.exec()
         if value == 1:
-            print(login.username)
-            print(login.password)
-            if login.username == '':
-                login.exec()
+            if login.username == '' or login.password == '':
                 self.is_not_login = True
                 return
+        else:
+            self.close()
+            sys.exit()
 
         self.is_not_login = False
+
+    def close_app(self):
+        self.close()
 
 
 if __name__ == "__main__":
@@ -39,6 +42,5 @@ if __name__ == "__main__":
     widget = MainWindow()
     widget.show()
     while widget.is_not_login:
-        if widget.is_not_login == True:
-            widget.push_login_clicked()
+        widget.try_login()
     sys.exit(app.exec())
