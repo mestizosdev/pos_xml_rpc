@@ -1,8 +1,11 @@
 # This Python file uses the following encoding: utf-8
+import os
 import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow
+from dotenv_vault import load_dotenv
 
+load_dotenv()
 # Important:
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
@@ -19,6 +22,10 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.pushLogin.clicked.connect(self.close_app)
+        server = os.getenv('SERVER')
+        db = os.getenv('DB')
+        print(f'Server: {server}')
+        print(f'DB: {db}')
 
     def try_login(self):
         login = Login(self)
