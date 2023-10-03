@@ -11,7 +11,7 @@ class PontOfSale(QMainWindow):
         self.ui.pushAdd.clicked.connect(self.add_row)
 
     def closeEvent(self, event: QCloseEvent) -> None:
-        super()
+        super().close()
         self.parent().show()
 
     def add_row(self):
