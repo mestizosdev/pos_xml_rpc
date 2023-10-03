@@ -28,6 +28,8 @@ class Ui_MainWindow(object):
         self.actionPoint_of_Sale.setObjectName(u"actionPoint_of_Sale")
         self.actionPrinter = QAction(MainWindow)
         self.actionPrinter.setObjectName(u"actionPrinter")
+        self.actionCompany = QAction(MainWindow)
+        self.actionCompany.setObjectName(u"actionCompany")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -47,6 +49,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuParameter.menuAction())
         self.menuTransacction.addAction(self.actionPoint_of_Sale)
         self.menuParameter.addAction(self.actionPrinter)
+        self.menuParameter.addAction(self.actionCompany)
 
         self.retranslateUi(MainWindow)
 
@@ -57,6 +60,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Point of Sale for Odoo", None))
         self.actionPoint_of_Sale.setText(QCoreApplication.translate("MainWindow", u"&Point of Sale", None))
         self.actionPrinter.setText(QCoreApplication.translate("MainWindow", u"P&rinter", None))
+        self.actionCompany.setText(QCoreApplication.translate("MainWindow", u"&Company", None))
         self.menuTransacction.setTitle(QCoreApplication.translate("MainWindow", u"&Transacction", None))
         self.menuParameter.setTitle(QCoreApplication.translate("MainWindow", u"&Parameter", None))
     # retranslateUi

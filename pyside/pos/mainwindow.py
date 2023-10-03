@@ -15,6 +15,7 @@ load_dotenv()
 from ui_mainwindow import Ui_MainWindow
 from login import Login
 from views.point_of_sale import PontOfSale
+from views.company import Company
 
 
 class MainWindow(QMainWindow):
@@ -27,12 +28,13 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         # self.ui.pushConnect.clicked.connect(self.test_odoo_server)
         self.ui.actionPoint_of_Sale.triggered.connect(self.open_pos)
+        self.ui.actionCompany.triggered.connect(self.open_company)
         server = os.getenv('SERVER')
         try:
             self.common = client.ServerProxy("%s/xmlrpc/2/common" % server)
             print(self.common.version())
         except ConnectionError:
-            message.error(f'Error connect to {server}')
+            message.error(f'Failed to connect to {server}')
             sys.exit()
 
     def try_login(self):
@@ -61,4 +63,9 @@ class MainWindow(QMainWindow):
     def open_pos(self):
         pos = PontOfSale(self)
         pos.show()
+        self.hide()
+
+    def open_company(self):
+        company = Company(self)
+        company.show()
         self.hide()

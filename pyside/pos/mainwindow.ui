@@ -34,6 +34,7 @@
      <string>&amp;Parameter</string>
     </property>
     <addaction name="actionPrinter"/>
+    <addaction name="actionCompany"/>
    </widget>
    <addaction name="menuTransacction"/>
    <addaction name="menuParameter"/>
@@ -47,6 +48,11 @@
   <action name="actionPrinter">
    <property name="text">
     <string>P&amp;rinter</string>
+   </property>
+  </action>
+  <action name="actionCompany">
+   <property name="text">
+    <string>&amp;Company</string>
    </property>
   </action>
  </widget>

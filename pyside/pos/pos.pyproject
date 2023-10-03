@@ -10,6 +10,8 @@
         ".env",
         "requirements.txt",
         "views/point_of_sale.py",
-        "views/point_of_sale.ui"
+        "views/point_of_sale.ui",
+        "views/company.ui",
+        "views/company.py"
     ]
 }
