@@ -1,7 +1,7 @@
 {
     "files": [
         "mainwindow.py",
-        "form.ui",
+        "mainwindow.ui",
         "login.ui",
         "login.py",
         "app.py",
