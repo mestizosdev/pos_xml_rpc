@@ -14,6 +14,8 @@ class Login(QDialog):
         self.ui.buttonBox.accepted.connect(self.accept_action)
         self.ui.buttonBox.rejected.connect(self.reject_action)
         self.ui.txtUsername.setFocus()
+        self.ui.txtUsername.setText('admin')
+        self.ui.txtPassword.setText('admin')
 
     def accept_action(self):
         self.username = self.ui.txtUsername.text()

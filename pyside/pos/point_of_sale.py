@@ -9,7 +9,13 @@ class PontOfSale(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_PosWindow()
         self.ui.setupUi(self)
+        self.ui.pushAdd.clicked.connect(self.add_row)
 
     def closeEvent(self, event: QCloseEvent) -> None:
         super()
         self.parent().show()
+
+    def add_row(self):
+        rowPosition = self.ui.tablDetail.rowCount()
+        self.ui.tablDetail.insertRow(rowPosition)
+        print('Add row')

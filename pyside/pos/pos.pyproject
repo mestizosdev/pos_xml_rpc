@@ -6,6 +6,10 @@
         "login.py",
         "app.py",
         "point_of_sale.ui",
-        "point_of_sale.py"
+        "point_of_sale.py",
+        "utils/message.py",
+        "utils/__init__.py",
+        ".env",
+        "requirements.txt"
     ]
 }

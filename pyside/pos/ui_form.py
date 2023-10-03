@@ -17,7 +17,7 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QSizePolicy, QStatusBar, QWidget)
+    QSizePolicy, QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,9 +30,6 @@ class Ui_MainWindow(object):
         self.actionPrinter.setObjectName(u"actionPrinter")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.pushConnect = QPushButton(self.centralwidget)
-        self.pushConnect.setObjectName(u"pushConnect")
-        self.pushConnect.setGeometry(QRect(70, 60, 119, 36))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -57,10 +54,9 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Point of Sale for Odoo", None))
         self.actionPoint_of_Sale.setText(QCoreApplication.translate("MainWindow", u"&Point of Sale", None))
         self.actionPrinter.setText(QCoreApplication.translate("MainWindow", u"P&rinter", None))
-        self.pushConnect.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
         self.menuTransacction.setTitle(QCoreApplication.translate("MainWindow", u"&Transacction", None))
         self.menuParameter.setTitle(QCoreApplication.translate("MainWindow", u"&Parameter", None))
     # retranslateUi
