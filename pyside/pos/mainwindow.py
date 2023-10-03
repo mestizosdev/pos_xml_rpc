@@ -50,6 +50,8 @@ class MainWindow(QMainWindow):
                     self.is_not_login = True
                     return
                 server = os.getenv('SERVER')
+                os.environ['UID'] = str(uid)
+                os.environ['PASSWORD'] = login.password
                 self.ui.statusbar.showMessage(f'Connected to {server} with {login.username}', 6000)
         else:
             self.close()
