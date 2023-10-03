@@ -1,8 +1,7 @@
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QCloseEvent
 
-from ui_point_of_sale import Ui_PosWindow
-
+from views.ui_point_of_sale import Ui_PosWindow
 
 class PontOfSale(QMainWindow):
     def __init__(self, parent=None):
@@ -16,6 +15,6 @@ class PontOfSale(QMainWindow):
         self.parent().show()
 
     def add_row(self):
-        rowPosition = self.ui.tablDetail.rowCount()
-        self.ui.tablDetail.insertRow(rowPosition)
+        rowPosition = self.ui.tableDetail.rowCount()
+        self.ui.tableDetail.insertRow(rowPosition)
         print('Add row')

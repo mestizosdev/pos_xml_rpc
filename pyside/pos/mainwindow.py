@@ -14,7 +14,7 @@ load_dotenv()
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_MainWindow
 from login import Login
-from point_of_sale import PontOfSale
+from views.point_of_sale import PontOfSale
 
 
 class MainWindow(QMainWindow):

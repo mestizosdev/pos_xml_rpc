@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="tablDetail">
+   <widget class="QTableWidget" name="tableDetail">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -52,8 +52,8 @@
    <widget class="QPushButton" name="pushAdd">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>50</y>
+      <x>40</x>
+      <y>40</y>
       <width>119</width>
       <height>36</height>
      </rect>
