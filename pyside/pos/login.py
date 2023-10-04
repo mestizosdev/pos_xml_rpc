@@ -20,9 +20,7 @@ class Login(QDialog):
     def accept_action(self):
         self.username = self.ui.txtUsername.text()
         self.password = self.ui.txtPassword.text()
-        print('accepted')
 
     def reject_action(self):
         self.username = ''
         self.password = ''
-        print('rejected')

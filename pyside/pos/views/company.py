@@ -1,6 +1,6 @@
 import os
 from xmlrpc import client
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QTableWidgetItem
 from PySide6.QtGui import QCloseEvent
 
 from views.ui_company import Ui_CompanyWindow
@@ -23,12 +23,19 @@ class Company(QMainWindow):
 
     def get_companies(self, server, db, uid, password):
         api = client.ServerProxy('%s/xmlrpc/2/object' % server)
-        companies = api.execute_kw(db, uid, password,
+        companies = (api
+                     .execute_kw(db, uid, password,
                                    'res.company',
                                    'search_read',
                                    [[]],
-                                   {'fields': ['id', 'name'], 'limit': 10})
+                                   {'fields': ['id', 'name'],
+                                    'limit': 10,
+                                    'order': 'id asc'}))
 
         for c in companies:
-            print(c)
-            print('-', c['id'], c['name'])
+            row = self.ui.tableCompany.rowCount()
+            self.ui.tableCompany.insertRow(row)
+            id = QTableWidgetItem(str(c['id']))
+            name = QTableWidgetItem(c['name'])
+            self.ui.tableCompany.setItem(row, 0, id)
+            self.ui.tableCompany.setItem(row, 1, name)
