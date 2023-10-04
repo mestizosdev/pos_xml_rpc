@@ -1,9 +1,5 @@
 {
     "files": [
-        "mainwindow.py",
-        "mainwindow.ui",
-        "login.ui",
-        "login.py",
         "app.py",
         "utils/message.py",
         "utils/__init__.py",
@@ -12,6 +8,10 @@
         "views/point_of_sale.py",
         "views/point_of_sale.ui",
         "views/company.ui",
-        "views/company.py"
+        "views/company.py",
+        "views/login.py",
+        "views/login.ui",
+        "views/mainwindow.py",
+        "views/mainwindow.ui"
     ]
 }

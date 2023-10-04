@@ -37,13 +37,11 @@ class PontOfSale(QMainWindow):
         api = client.ServerProxy('%s/xmlrpc/2/object' % server)
         companies = (api
                      .execute_kw(db, uid, password,
-                                   'product.product',
-                                   'search_read',
-                                   [[['barcode', '=', '5651234567866']]],
-                                   {}))
+                                 'product.product',
+                                 'search_read',
+                                 [[['barcode', '=', '5651234567866']]],
+                                 {'limit': 1}))
 
         for c in companies:
             print(c)
             print(str(c['id']), c['name'])
-
-
