@@ -30,15 +30,18 @@ class Ui_CompanyWindow(object):
         if (self.tableCompany.columnCount() < 2):
             self.tableCompany.setColumnCount(2)
         __qtablewidgetitem = QTableWidgetItem()
+        __qtablewidgetitem.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter);
         self.tableCompany.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
+        __qtablewidgetitem1.setTextAlignment(Qt.AlignLeading|Qt.AlignVCenter);
         self.tableCompany.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tableCompany.setObjectName(u"tableCompany")
         self.tableCompany.setGeometry(QRect(120, 110, 511, 171))
+        self.tableCompany.setGridStyle(Qt.SolidLine)
         CompanyWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(CompanyWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 34))
+        self.menubar.setGeometry(QRect(0, 0, 800, 33))
         CompanyWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(CompanyWindow)
         self.statusbar.setObjectName(u"statusbar")

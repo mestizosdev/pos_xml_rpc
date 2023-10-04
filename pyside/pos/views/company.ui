@@ -23,14 +23,23 @@
       <height>171</height>
      </rect>
     </property>
+    <property name="gridStyle">
+     <enum>Qt::SolidLine</enum>
+    </property>
     <column>
      <property name="text">
       <string>id</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignTrailing|AlignVCenter</set>
      </property>
     </column>
     <column>
      <property name="text">
       <string>name</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignLeading|AlignVCenter</set>
      </property>
     </column>
    </widget>
@@ -41,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>34</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>
