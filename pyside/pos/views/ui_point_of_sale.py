@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHeaderView, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QStatusBar, QTableWidget,
-    QTableWidgetItem, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QMainWindow,
+    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
+    QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_PosWindow(object):
     def setupUi(self, PosWindow):
@@ -41,9 +41,22 @@ class Ui_PosWindow(object):
         self.tableDetail.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         self.tableDetail.setObjectName(u"tableDetail")
         self.tableDetail.setGeometry(QRect(40, 120, 671, 271))
-        self.pushAdd = QPushButton(self.centralwidget)
+        self.gridLayoutWidget = QWidget(self.centralwidget)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(50, 10, 311, 80))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.pushAdd = QPushButton(self.gridLayoutWidget)
         self.pushAdd.setObjectName(u"pushAdd")
-        self.pushAdd.setGeometry(QRect(40, 40, 119, 36))
+
+        self.gridLayout.addWidget(self.pushAdd, 0, 0, 1, 1)
+
+        self.pushRemove = QPushButton(self.gridLayoutWidget)
+        self.pushRemove.setObjectName(u"pushRemove")
+
+        self.gridLayout.addWidget(self.pushRemove, 0, 1, 1, 1)
+
         PosWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(PosWindow)
         self.menubar.setObjectName(u"menubar")
@@ -71,5 +84,6 @@ class Ui_PosWindow(object):
         ___qtablewidgetitem4 = self.tableDetail.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("PosWindow", u"total", None));
         self.pushAdd.setText(QCoreApplication.translate("PosWindow", u"&Add", None))
+        self.pushRemove.setText(QCoreApplication.translate("PosWindow", u"&Remove", None))
     # retranslateUi
 
