@@ -12,6 +12,7 @@
         "views/login.py",
         "views/login.ui",
         "views/mainwindow.py",
-        "views/mainwindow.ui"
+        "views/mainwindow.ui",
+        "utils/client.py"
     ]
 }

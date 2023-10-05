@@ -1,9 +1,7 @@
-import os
-from xmlrpc import client
-
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QCloseEvent
 
+from utils.client import Client
 from views.ui_point_of_sale import Ui_PosWindow
 
 
@@ -24,17 +22,14 @@ class PontOfSale(QMainWindow):
         row_position = self.ui.tableDetail.rowCount()
         self.ui.tableDetail.insertRow(row_position)
         print('Add row')
-        server = os.getenv('SERVER')
-        db = os.getenv('DB')
-        uid = os.getenv('UID')
-        password = os.getenv('PASSWORD')
-        self.get_product(server, db, uid, password)
+        db, uid, password = Client.load()
+        self.get_product(db, uid, password)
 
     def changed(self):
         print('item Changed')
 
-    def get_product(self, server, db, uid, password):
-        api = client.ServerProxy('%s/xmlrpc/2/object' % server)
+    def get_product(self, db, uid, password):
+        api = Client.api()
         companies = (api
                      .execute_kw(db, uid, password,
                                  'product.product',

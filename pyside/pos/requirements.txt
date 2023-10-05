@@ -1,3 +1,4 @@
 python-lsp-server[all]
 PySide6
 python-dotenv-vault
+pydantic

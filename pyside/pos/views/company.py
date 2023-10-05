@@ -1,9 +1,8 @@
-import os
-from xmlrpc import client
 from PySide6.QtWidgets import QMainWindow, QTableWidgetItem
 from PySide6.QtGui import QCloseEvent, QColor
 
 from views.ui_company import Ui_CompanyWindow
+from utils.client import Client
 
 
 class Company(QMainWindow):
@@ -14,13 +13,9 @@ class Company(QMainWindow):
 
         self.ui.tableCompany.setColumnWidth(0, 90)
         self.ui.tableCompany.setColumnWidth(1, 330)
-#        self.ui.tableCompany.itemClicked.connect(self.click_table)
-
-        server = os.getenv('SERVER')
-        db = os.getenv('DB')
-        uid = os.getenv('UID')
-        password = os.getenv('PASSWORD')
-        self.get_companies(server, db, uid, password)
+        #        self.ui.tableCompany.itemClicked.connect(self.click_table)
+        db, uid, password = Client.load()
+        self.get_companies(db, uid, password)
 
     def closeEvent(self, event: QCloseEvent) -> None:
         super().close()
@@ -30,16 +25,16 @@ class Company(QMainWindow):
         for j in range(table.columnCount()):
             table.item(rowIndex, j).setBackground(color)
 
-    def get_companies(self, server, db, uid, password):
-        api = client.ServerProxy('%s/xmlrpc/2/object' % server)
+    def get_companies(self, db, uid, password):
+        api = Client.api()
         companies = (api
                      .execute_kw(db, uid, password,
-                                   'res.company',
-                                   'search_read',
-                                   [[]],
-                                   {'fields': ['id', 'name'],
-                                    'limit': 10,
-                                    'order': 'id asc'}))
+                                 'res.company',
+                                 'search_read',
+                                 [[]],
+                                 {'fields': ['id', 'name'],
+                                  'limit': 10,
+                                  'order': 'id asc'}))
 
         for c in companies:
             row = self.ui.tableCompany.rowCount()
@@ -52,5 +47,4 @@ class Company(QMainWindow):
     def click_table(self):
         print('click_table')
         row = self.ui.tableCompany.currentRow()
-        self.setColortoRow(self.ui.tableCompany, row, QColor(125,125,125))
-
+        self.setColortoRow(self.ui.tableCompany, row, QColor(125, 125, 125))
