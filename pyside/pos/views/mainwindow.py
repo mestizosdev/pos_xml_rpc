@@ -2,7 +2,7 @@
 import os
 import sys
 
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 from xmlrpc import client
 from dotenv_vault import load_dotenv
 from utils import message
@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
             self.common = client.ServerProxy("%s/xmlrpc/2/common" % server)
             print(self.common.version())
         except ConnectionError:
-            message.error(f'Failed to connect to {server}')
+            message.error(self, f'Failed to connect to {server}').exec()
             sys.exit()
 
     def try_login(self):

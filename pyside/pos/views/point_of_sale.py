@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QMainWindow, QTableWidgetItem, QMessageBox
+from PySide6.QtWidgets import QMainWindow, QTableWidgetItem
 from PySide6.QtGui import QCloseEvent
 
 from utils import message
@@ -57,13 +57,7 @@ class PontOfSale(QMainWindow):
             self.ui.tableDetail.setItem(row, 4, QTableWidgetItem(str(2)))
 
         if not exist_product:
-            dialog = QMessageBox(self)
-            dialog.setWindowTitle("Error!!!")
-            dialog.setText('Product not found')
-            dialog.setStandardButtons(QMessageBox.Ok)
-            dialog.setIcon(QMessageBox.Warning)
-            dialog.show()
-            # message.error('Product not found')
+            message.warning(self, 'Product not found').show()
 
         self.ui.txtBarcode.setText('')
         self.ui.txtBarcode.setFocus()
